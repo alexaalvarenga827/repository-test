@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<title>Repository Test — Landing</title>
+	<meta name="description" content="Landing page for the repository-test demo">
+	<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+	<header class="header">
+		<h2><img src="/0.png" alt="logo" class="header-logo">charity:water</h2>
+	</header>
+	<main class="hero">
+		<h1>Every Family Deserves Clean Water</h1>
+		<p class="lead"> Our support is a significant contribution that brings 
+			clean, safe water to families during the Global Water 
+			Crisis —and proof that real change comes from consistency. </p>
+		<h2><a class="cta" href="See-How-Your-Impact-Flows">See How Your Impact Flows</a></h2>
+
+		<!-- Simple preview uploader -->
+		<section class="uploader">
+			<img src="JS_20170301_8134_preview.jpg" class="crop-box" height="600"></img>
+		</section>
+
+		<script>
+		// Defensive, minimal preview script — images and text files
+		(function(){
+			try{
+				var fileInput = document.getElementById('fileInput');
+				var dropzone = document.getElementById('dropzone');
+				var preview = document.getElementById('preview');
+
+				if(!fileInput || !dropzone || !preview) return;
+
+				function clearPreview(){ preview.textContent = ''; }
+
+				function showImage(file){
+					var img = document.createElement('img');
+					img.alt = file.name || 'preview image';
+					img.src = URL.createObjectURL(file);
+					img.onload = function(){ URL.revokeObjectURL(this.src); };
+					clearPreview(); preview.appendChild(img);
+				}
+
+				function showText(file){
+					var reader = new FileReader();
+					reader.onload = function(){ clearPreview(); var pre = document.createElement('pre'); pre.textContent = reader.result.slice(0,20000); preview.appendChild(pre); };
+					reader.onerror = function(){ clearPreview(); preview.textContent = 'Could not read file'; };
+					reader.readAsText(file);
+				}
+
+				function handleFile(file){
+					if(!file) return;
+					if(file.type && file.type.indexOf('image/') === 0) return showImage(file);
+					if(file.type && file.type.indexOf('text/') === 0) return showText(file);
+					if(/\.md$|\.csv$|\.json$/i.test(file.name)) return showText(file);
+					// fallback: show name and size
+					clearPreview(); var info = document.createElement('div'); info.textContent = file.name + ' — ' + Math.round(file.size/1024) + ' KB'; preview.appendChild(info);
+				}
+
+				fileInput.addEventListener('change', function(e){ handleFile(e.target.files && e.target.files[0]); });
+
+				dropzone.addEventListener('dragover', function(e){ e.preventDefault(); dropzone.classList.add('dragover'); });
+				dropzone.addEventListener('dragleave', function(){ dropzone.classList.remove('dragover'); });
+				dropzone.addEventListener('drop', function(e){ e.preventDefault(); dropzone.classList.remove('dragover'); handleFile(e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files[0]); });
+			}catch(err){ console.error('Preview error:', err); }
+		})();
+		</script>
+	</main>
+</body>
+</html>
