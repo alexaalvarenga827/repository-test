@@ -18,19 +18,20 @@
 		<p class="lead"> Our support is a significant contribution that brings 
 			clean, safe water to families during the Global Water 
 			Crisis —and proof that real change comes from consistency. </p>
-		<!-- GIF (absolute, sits over hero padding). If the GIF fails, SVG fallback displays -->
 		<h2>
-			<a class="cta" href="See-How-Your-Impact-Flows">See How Your Impact Flows</a>
+			<div class="cta-wrap">
+				<img src="IMG_0742.GIF" alt="" class="cta-gif" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
+				<!-- SVG fallback (hidden by default) -->
+				<svg class="cta-fallback-anim" viewBox="0 0 100 100" aria-hidden="true" focusable="false" style="display:none">
+					<circle cx="50" cy="50" r="18" fill="#fff" opacity="0.12"></circle>
+					<circle cx="50" cy="50" r="10" fill="#bf6c46">
+						<animate attributeName="r" values="8;14;8" dur="1.2s" repeatCount="indefinite" />
+						<animate attributeName="opacity" values="1;0.4;1" dur="1.2s" repeatCount="indefinite" />
+					</circle>
+				</svg>
+				<a class="cta" href="See-How-Your-Impact-Flows">See How Your Impact Flows</a>
+			</div>
 		</h2>
-		<!-- GIF (absolute, placed after the h2 so the CTA can sit above it) -->
-		<img src="IMG_0742.GIF" alt="" class="h2-margin-gif" onerror="this.style.display='none'; document.querySelector('.h2-fallback-anim').style.display='block'">
-		<svg class="h2-fallback-anim" viewBox="0 0 100 100" aria-hidden="true" focusable="false" style="display:none">
-			<circle cx="50" cy="50" r="18" fill="#fff" opacity="0.12"></circle>
-			<circle cx="50" cy="50" r="10" fill="#bf6c46">
-				<animate attributeName="r" values="8;14;8" dur="1.2s" repeatCount="indefinite" />
-				<animate attributeName="opacity" values="1;0.4;1" dur="1.2s" repeatCount="indefinite" />
-			</circle>
-		</svg>
 
 		<!-- Simple preview uploader -->
 		<section class="uploader">
