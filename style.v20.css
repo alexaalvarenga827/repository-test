@@ -34,22 +34,26 @@ body{font-family:system-ui, -apple-system, 'Segoe UI', Roboto, Arial; color:#0f1
     padding-bottom: 1em;
     margin: 0;
 }
+.hero{position:relative}
 .h2-margin-gif, .h2-fallback-anim{
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    /* Make the GIF large enough to fill the h2 margin area responsively */
-    width: clamp(120px, 60vw, 1000px);
-    height: auto;
-    max-width: 1200px;
-    z-index: 0; /* behind the CTA */
-    pointer-events: none;
-    opacity: 0.95;
+        position: absolute;
+        /* center horizontally across the hero area */
+        left: 50%;
+        /* place vertically so GIF overlaps the hero padding area */
+        top: 8%;
+        transform: translateX(-50%);
+        width: clamp(220px, 60vw, 1200px);
+        height: auto;
+        z-index: 1; /* above background but behind CTA */
+        pointer-events: none;
+        opacity: 0.98;
 }
-.hero h2{position:relative; overflow: visible}
-.h2-fallback-anim{width: clamp(96px,40vw,800px); height:auto}
+.h2-fallback-anim{width: clamp(160px,40vw,900px); height:auto}
 .hero h2 .cta{position:relative; z-index:2}
+
+@media (max-width: 520px){
+    .h2-margin-gif, .h2-fallback-anim{ width: clamp(80px, 40vw, 260px); top: 10%; }
+}
 .lead{margin:0 !important;padding:0.75rem 16px;background:#fff7e1;color:#bf6c46;font-family:Proxima Nova condensed 'Courier New', Courier, monospace;;font-size: 19.5px;line-height: 1.6;}
 .cta{background:#000;color:#ffc907;padding: 0.75rem 1rem;border-radius:999px;font-family:Proxima Nova 'Courier New', Courier, monospace;font-weight:500;display:inline-block}
 .cta:hover {
