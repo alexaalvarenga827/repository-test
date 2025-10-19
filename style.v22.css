@@ -1,0 +1,82 @@
+/* Very small, simplistic stylesheet (v22)
+   Copy of style.v21.css for dev overrides
+*/
+
+*{box-sizing:border-box}
+html,body{height:100%;margin:0}
+body{font-family:system-ui, -apple-system, 'Segoe UI', Roboto, Arial; color:#0f172a; background:#fffefc}
+
+.header{padding:1.25rem;background:#000;padding: 1.25rem;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: flex
+;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;}
+.header h2{margin:0 2rem 5px;color:#cbccd1;font-weight:400;text-transform:lowercase;font-family:Georgia, 'Times New Roman', Times, serif;font-size:37.5px;letter-spacing:10px;}
+.header-logo{height: 2rem;width:auto;vertical-align:middle;margin-right:1rem;border-radius:0;object-fit:cover}
+
+.hero{background:#ffc907;color:#000;text-align:center;aspect-ratio: auto 1000 / 301;padding-top: 34px;} 
+.hero h1{margin:0;background:#fedbc0;color:#000;font-size:42.3px;font-family: Proxima Nova 'Courier New', Courier, monospace;font-weight: 950;padding-top:0.75rem;padding-bottom:0.75rem;}
+.hero h2{
+    display: block;
+    font-size: 1.5em;
+    font-weight: bold;
+    unicode-bidi: isolate;
+    font-weight: bold;
+    unicode-bidi: isolate;
+    background: #bf6c46;
+    padding-top: 1.5em;
+    padding-bottom: 1em;
+    margin: 0;
+}
+.hero{position:relative}
+.cta-wrap{position:relative; display:inline-block}
+.cta-gif, .cta-fallback-anim{
+    position:absolute;
+    left:50%;
+    top:50%;
+    transform: translate(-50%,-50%);
+    width: 1650px;
+    height:auto;
+    z-index:0; /* behind the CTA */
+    pointer-events:none;
+    opacity:0.98;
+}
+.cta-fallback-anim{width: clamp(160px, 32vw, 540px)}
+.hero h2{position:relative; z-index:3}
+.hero .cta{position:relative; z-index:4}
+
+@media (max-width: 520px){
+    .cta-gif, .cta-fallback-anim{ width: clamp(72px, 28vw, 180px); }
+}
+.lead{margin:0 !important;padding:0.75rem 16px;background:#fff7e1;color:#bf6c46;font-family:Proxima Nova condensed 'Courier New', Courier, monospace;;font-size: 19.5px;line-height: 1.6;}
+.cta{background:#000;color:#ffc907;padding: 0.75rem 1rem;border-radius:999px;font-family:Proxima Nova 'Courier New', Courier, monospace;font-weight:500;display:inline-block}
+.cta:hover {
+  color: #77a8bb;}
+/* Preview support (simple) */
+.uploader .crop-box{
+    padding: 0.5rem;
+    background:#000; 
+    object-fit: cover;
+    object-position: 0% 68%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width:100%;
+    height:800px;
+}
+.dropzone{padding:.6rem;border-radius:10px;border:1px dashed rgba(0,0,0,0.08);display:flex;align-items:center;justify-content:center;cursor:pointer;background:#fff}
+.dropzone.dragover{border-color:#06b6d4}
+.dropzone input{display:none}
+.preview{margin-top:.75rem;padding:.6rem;background:#fff;border:1px solid rgba(0,0,0,0.04);border-radius:8px;min-height:4rem;display:flex;align-items:center;justify-content:center;overflow:auto}
+.preview img{max-width:100%;height:auto;border-radius:6px}
+.preview pre{white-space:pre-wrap;margin:0;font-family:monospace;font-size:.9rem}
