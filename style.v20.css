@@ -34,6 +34,19 @@ body{font-family:system-ui, -apple-system, 'Segoe UI', Roboto, Arial; color:#0f1
     padding-bottom: 1em;
     margin: 0;
 }
+.h2-margin-gif, .h2-fallback-anim{
+    position: absolute;
+    left: 20px; /* nudge into the left margin area */
+    top: 50%;
+    transform: translateY(-50%);
+    width: clamp(56px,6.5vw,140px);
+    height: auto;
+    z-index: 0;
+    pointer-events: none;
+}
+.hero h2{position:relative}
+.h2-fallback-anim{width: clamp(48px,5.5vw,120px); height:auto}
+.hero h2 .cta{position:relative; z-index:2}
 .lead{margin:0 !important;padding:0.75rem 16px;background:#fff7e1;color:#bf6c46;font-family:Proxima Nova condensed 'Courier New', Courier, monospace;;font-size: 19.5px;line-height: 1.6;}
 .cta{background:#000;color:#ffc907;padding: 0.75rem 1rem;border-radius:999px;font-family:Proxima Nova 'Courier New', Courier, monospace;font-weight:500;display:inline-block}
 .cta:hover {
