@@ -36,20 +36,19 @@ body{font-family:system-ui, -apple-system, 'Segoe UI', Roboto, Arial; color:#0f1
 }
 .hero{position:relative}
 .h2-margin-gif, .h2-fallback-anim{
-        position: absolute;
-        /* center horizontally across the hero area */
-        left: 50%;
-        /* place vertically so GIF overlaps the hero padding area */
-        top: 8%;
-        transform: translateX(-50%);
+    position: absolute;
+    left: 50%;
+    top: 8%;
+    transform: translateX(-50%);
     width: clamp(264px, 60vw, 1440px);
-        height: auto;
-        z-index: 1; /* above background but behind CTA */
-        pointer-events: none;
-        opacity: 0.98;
+    height: auto;
+    z-index: 0; /* place behind CTA */
+    pointer-events: none;
+    opacity: 0.98;
 }
 .h2-fallback-anim{width: clamp(192px,40vw,1080px); height:auto}
-.hero h2 .cta{position:relative; z-index:2}
+.hero h2{position:relative; z-index:3}
+.hero .cta{position:relative; z-index:4}
 
 @media (max-width: 520px){
     .h2-margin-gif, .h2-fallback-anim{ width: clamp(96px, 40vw, 312px); top: 10%; }
